@@ -45,121 +45,173 @@ The IR sensor and LDR sensor are connected to the input GPIO pins of the Raspber
 The LED, buzzer, and relay module are connected to the output GPIO pins. These devices act as output indicators or control devices. The relay can control external electrical loads, while the LED and buzzer provide visual and audio alerts.
 Raspberry Pi connects to the internet through Wi-Fi and communicates with the Blynk cloud server. The Blynk mobile application displays the sensor values and allows the user to control the output devices remotely. When a command is given from the Blynk app, Raspberry Pi processes the command and activates or deactivates the connected output devices.
 
+<img width="1042" height="695" alt="image" src="https://github.com/user-attachments/assets/05b34c40-1e93-4eb0-892d-ea30fcd6c59d" />
+ ### FIGURE-02 CIRCUIT DIAGRAM
+
 ### **IR Sensor:**  
   An **Infrared Sensor (IR Sensor)** is an electronic device used to detect the presence of objects by using **infrared light**. It consists mainly of an **IR transmitter (IR LED)** and an **IR receiver (photodiode or phototransistor)**. The transmitter emits infrared rays, and when these rays strike an object, they are reflected back and detected by the receiver. Based on this reflection, the sensor determines whether an object is present or absent. IR sensors are widely used in applications such as **obstacle detection, automatic doors, security systems, and line-following robots** due to their fast response and simple operation.
-<img width="422" height="231" alt="image" src="https://github.com/user-attachments/assets/1d285af7-5d3d-4b19-8d87-a999967f5fba" />
+<img width="422" height="204" alt="image" src="https://github.com/user-attachments/assets/b6ff30ce-190e-4e6e-a608-4d8ee9b6985d" />
+### FIGURE-03 IR Sensor
 
 ### **LDR Sensor:**  
-
+   An **Light Dependent Resistor (LDR)** is a light-sensitive electronic sensor whose electrical resistance changes according to the intensity of incident light. When the surrounding light level increases, the resistance of the LDR decreases, allowing more current to flow through the circuit; conversely, in low-light or dark conditions its resistance becomes very high and restricts current flow. This property makes the LDR useful for automatically detecting and responding to light levels in applications such as automatic street lights, brightness control systems, security alarms, and light-activated switching circuits.
 <img width="656" height="188" alt="image" src="https://github.com/user-attachments/assets/18f0925b-50a1-4ad1-981d-9a67b20e274d" />
+### FIGURE-04 LDR Sensor
 
 ### **Relay Model:**  
-
+   A **relay module** is an electrically operated switch used to control high-voltage or high-current devices using a low-power control signal from a microcontroller such as a Raspberry Pi or Arduino. It works based on an electromagnetic principle: when a small voltage is applied to the relay coil, it generates a magnetic field that pulls a switch contact to either open or close the circuit. This allows the microcontroller to safely control external loads like lamps, motors, or appliances without direct electrical connection. Relay modules usually include control pins (VCC, GND, IN) and switching terminals such as Normally Open (NO), Normally Closed (NC), and Common (COM).
 <img width="430" height="286" alt="image" src="https://github.com/user-attachments/assets/49866a32-4dd4-4cd8-98bf-522a41920c8c" />
+### FIGURE-05 Relay Model
 
 ### **LED:**  
-
+   A **Light Emitting Diode (LED)** is a semiconductor electronic component that emits light when an electric current passes through it. It operates on the principle of electroluminescence, where electrons recombine with holes inside the semiconductor material and release energy in the form of light. LEDs are widely used in **electronic circuits as indicators, displays, and lighting device**s because they consume very low power, have a **long lifespan, generate less heat, and switch very fast compared to conventional light source**s. They are available in different colors such as **red, green, blue, and white** depending on the semiconductor material used.
 <img width="522" height="236" alt="image" src="https://github.com/user-attachments/assets/b7b23183-1397-4a57-8098-49195063128b" />
+### FIGURE-06 LED
 
 ### **Buzzer:**  
+   A **buzzer** is an electronic audio signaling device used to produce sound for alerts, alarms, or indications in electronic circuits. It converts electrical energy into sound energy and is commonly used in devices such as alarms, timers, computers, and embedded systems. Buzzers are mainly of two types: **active buzzers**, which generate sound when a DC voltage is applied, and **passive buzzers**, which require an external signal or frequency to produce sound. They are widely used in microcontroller and Raspberry Pi projects to provide audible notifications when a specific event or condition occurs.
 
 <img width="609" height="202" alt="image" src="https://github.com/user-attachments/assets/bcc5542a-1a7f-4a97-9268-31219fc0a649" />
-
-### **IR Sensor:**  
-
-
-The **MPU6050** is a **6-Axis Inertial Measurement Unit (IMU)** that includes:  
-- **3-axis accelerometer** and **3-axis gyroscope**  
-- **I2C communication protocol** for easy interfacing  
-- **Operating Voltage:** 3.3V – 5V  
-- **Accelerometer Range:** ±2g, ±4g, ±8g, ±16g  
-- **Gyroscope Range:** ±250°/s, ±500°/s, ±1000°/s, ±2000°/s  
-
-The **accelerometer** measures linear acceleration in **X, Y, Z axes**, while the **gyroscope** measures rotational velocity. The sensor communicates with the Raspberry Pi Pico via **I2C protocol**.
+### FIGURE-07 Buzzer
 
 ---
-
-## **WORKING PRINCIPLE:**  
-1. The **MPU6050 sensor** is connected to the **Raspberry Pi Pico** using the **I2C communication protocol**.  
-2. The **Pico reads acceleration and gyroscope values** from the sensor registers.  
-3. The data is **processed and displayed on the serial monitor**.  
-4. The readings can be used for **motion tracking, tilt sensing, or gesture recognition**.
+### **Procedure:** 
+1.	Install the required libraries such as **Blynk and GPIO libraries in the Raspberry Pi** .
+2.	Connect the IR sensor and LDR sensor to the input GPIO pins of the Raspberry Pi.
+3.	Connect the LED, buzzer, and relay module to the output GPIO pins.
+4.	Create a project in the Blynk mobile application.
+5.	Add widgets such as **labels for sensor values and buttons for device control**.
+6.	Copy the **Blynk authentication token** from the app.
+7.	Write the Python program in Raspberry Pi to read sensor values and send them to the Blynk cloud.
+8.	Configure the program to receive commands from the Blynk app to control the LED, buzzer, and relay.
+9.	Run the program in Raspberry Pi.
+10.	Observe the sensor values in the Blynk application and control the output devices using the app interface.
+### **Algorithm / Program Flow:** 
+1.	Start the program.
+2.	Import the required libraries for GPIO control and Blynk communication.
+3.	Configure the GPIO pins of the Raspberry Pi for input and output devices.
+4.	Initialize the Blynk authentication token and connect Raspberry Pi to the Blynk cloud server through the internet.
+5.	Read the input values from the IR sensor and LDR sensor.
+6.	Send the sensor values to the Blynk mobile application using virtual pins.
+7.	Continuously monitor the Blynk app for user commands.
+8.	If a command is received from the Blynk app:
+o	Turn ON/OFF the LED.
+o	Activate or deactivate the buzzer.
+o	Switch the relay ON or OFF.
+9.	Repeat the process to continuously monitor sensors and control devices.
+10.	Stop the program when required.
 
 ---
 
 ## **CIRCUIT DIAGRAM:**  
 ### **Connections:**  
-
-| MPU6050 Pin | Raspberry Pi Pico Pin |
-|------------|----------------------|
-| VCC | 3.3V |
-| GND | GND |
-| SDA | GP20 |
-| SCL | GP21 |
+### **GPIO Pin Connection Table:** 
+|  Device  | 	Raspberry Pi GPIO Pin	  |  Purpose
+|  IR Sensor Output	  | 	GPIO 17		  |  Detect object presence
+|  LDR Sensor Output	  | 	GPIO 27		  |  Detect light intensity
+|  Relay Module	  | 	GPIO 22		  |  Control external load
+|  LED	  | 	GPIO 23		  |  Visual indication
+|  Buzzer	  | 	GPIO 24		  |  Sound alert
+|  VCC	  | 	5V Pin		  |  Power supply
+|  GND	  | 	GND Pin		  |  Common ground
 
 ---
 
-## **PROGRAM (MicroPython)**  
+## **Sample Python Code for Raspberry Pi + Blynk**  
 ```python
-from machine import Pin, I2C
-import utime
+import RPi.GPIO as GPIO
+import BlynkLib
+import time
 
-# MPU6050 I2C address
-MPU6050_ADDR = 0x68
+# Blynk Authentication Token
+BLYNK_AUTH = 'Your_Blynk_Auth_Token'
 
-# MPU6050 Registers
-PWR_MGMT_1 = 0x6B
-ACCEL_XOUT_H = 0x3B
-GYRO_XOUT_H = 0x43
+# Initialize Blynk
+blynk = BlynkLib.Blynk(BLYNK_AUTH)
 
-# Initialize I2C
-sda = Pin(20)  # Define your SDA pin
-scl = Pin(21)  # Define your SCL pin
-i2c = I2C(1, scl=scl, sda=sda, freq=400000)  # Use I2C1
+# GPIO Setup
+GPIO.setmode(GPIO.BCM)
 
-def mpu6050_init():
-    i2c.writeto_mem(MPU6050_ADDR, PWR_MGMT_1, b'\x00')  # Wake up MPU6050
+# Sensor Pins
+IR_PIN = 17
+LDR_PIN = 27
 
-def read_raw_data(reg):
-    data = i2c.readfrom_mem(MPU6050_ADDR, reg, 2)
-    value = (data[0] << 8) | data[1]  # Combine high and low bytes
-    if value > 32767:
-        value -= 65536  # Convert to signed 16-bit
-    return value
+# Output Pins
+RELAY = 22
+LED = 23
+BUZZER = 24
 
-def get_sensor_data():
-    accel_x = read_raw_data(ACCEL_XOUT_H) / 16384.0  # Convert to g
-    accel_y = read_raw_data(ACCEL_XOUT_H + 2) / 16384.0
-    accel_z = read_raw_data(ACCEL_XOUT_H + 4) / 16384.0
-    
-    gyro_x = read_raw_data(GYRO_XOUT_H) / 131.0  # Convert to deg/s
-    gyro_y = read_raw_data(GYRO_XOUT_H + 2) / 131.0
-    gyro_z = read_raw_data(GYRO_XOUT_H + 4) / 131.0
-    
-    return (accel_x, accel_y, accel_z, gyro_x, gyro_y, gyro_z)
+GPIO.setup(IR_PIN, GPIO.IN)
+GPIO.setup(LDR_PIN, GPIO.IN)
 
-# Initialize MPU6050
-mpu6050_init()
+GPIO.setup(RELAY, GPIO.OUT)
+GPIO.setup(LED, GPIO.OUT)
+GPIO.setup(BUZZER, GPIO.OUT)
+
+GPIO.output(RELAY, 0)
+GPIO.output(LED, 0)
+GPIO.output(BUZZER, 0)
+
+# Blynk Control for Relay
+@blynk.on("V2")
+def relay_control(value):
+    if int(value[0]) == 1:
+        GPIO.output(RELAY, 1)
+    else:
+        GPIO.output(RELAY, 0)
+
+# Blynk Control for LED
+@blynk.on("V3")
+def led_control(value):
+    if int(value[0]) == 1:
+        GPIO.output(LED, 1)
+    else:
+        GPIO.output(LED, 0)
+
+# Blynk Control for Buzzer
+@blynk.on("V4")
+def buzzer_control(value):
+    if int(value[0]) == 1:
+        GPIO.output(BUZZER, 1)
+    else:
+        GPIO.output(BUZZER, 0)
 
 while True:
-    ax, ay, az, gx, gy, gz = get_sensor_data()
-    print(f"Accel: X={ax:.2f}g, Y={ay:.2f}g, Z={az:.2f}g | Gyro: X={gx:.2f}°/s, Y={gy:.2f}°/s, Z={gz:.2f}°/s")
-    utime.sleep(1)
-```
+    blynk.run()
 
----
+    ir_value = GPIO.input(IR_PIN)
+    ldr_value = GPIO.input(LDR_PIN)
 
-## **OUTPUT:**  
-When the above program is executed, the output on the serial monitor will display real-time acceleration and gyroscope values, such as:
-```
-Accel: X=0.02g, Y=-0.01g, Z=1.00g | Gyro: X=0.05°/s, Y=-0.02°/s, Z=0.01°/s
-Accel: X=0.03g, Y=-0.02g, Z=1.01g | Gyro: X=0.06°/s, Y=-0.03°/s, Z=0.02°/s
+    # Send sensor values to Blynk
+    blynk.virtual_write(0, ir_value)
+    blynk.virtual_write(1, ldr_value)
+
+    time.sleep(1)
+
 ...
 ```
 ---
+## **Expected Output (Blynk App Interface)**
+### **Learners should capture screenshots of the Blynk mobile application showing the following widgets:**
+### **Screen 1 – Sensor Monitoring**
+•	Label Widget (V0) → Displays IR Sensor Value (Object Detected / Not Detected)
+•	Label Widget (V1) → Displays LDR Sensor Value (Light / Dark)
+### **Screen 2 – Device Control**
+•	Button Widget (V2) → Relay ON/OFF
+•	Button Widget (V3) → LED ON/OFF
+•	Button Widget (V4) → Buzzer ON/OFF
+### **Screen 3 – Hardware Output**
+#### **When the buttons are pressed in the Blynk app:**
+•	LED turns ON/OFF
+•	Buzzer produces sound
+•	Relay switches the connected load
+### **Learners should attach:**
+1.	Screenshot of the Blynk dashboard showing sensor values.
+2.	Screenshot of device control buttons.
+3.	Photo of hardware setup with Raspberry Pi and sensors.
 
 ## **RESULT:**  
-The **MPU6050 sensor** was successfully interfaced with the **Raspberry Pi Pico**, and real-time **acceleration and gyroscope data** were read and displayed. The sensor values can be used for **motion tracking, tilt detection, and gesture control applications**.
+Thus, the sensor values from the **IR and LDR sensors** were successfully monitored in the **Blynk mobile application using Raspberry Pi 4**, and the** output devices (LED, buzzer, and relay)** were controlled through the **Blynk interface based on the sensor inputs** and user commands.
 
 ---
 
