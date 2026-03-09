@@ -214,6 +214,32 @@ while True:
 2.	Screenshot of device control buttons.
 3.	Photo of hardware setup with Raspberry Pi and sensors.
 
+
+### FIGURE -08 Relay On Image
+
+### FIGURE -09 LED On Image
+
+### FIGURE -10 Buzzer On Image
+
+### FIGURE -11 Blynk App Screenshot for IR Sensor
+
+### FIGURE -12 Blynk App Screenshot for LDR Sensor
+
+### FIGURE -13 Blynk App Screenshot for Relay ON
+
+### FIGURE -11 Blynk App Screenshot for Relay OFF
+
+### FIGURE -12 Blynk App Screenshot for Buzzer ON
+
+### FIGURE -13 Blynk App Screenshot for Buzzer OFF
+
+### FIGURE -14 Blynk App Screenshot for LED ON
+
+### FIGURE -15 Blynk App Screenshot for LED OFF
+
+
+
+
 ## **RESULT:**  
 Thus, the sensor values from the **IR and LDR sensors** were successfully monitored in the **Blynk mobile application using Raspberry Pi 4**, and the** output devices (LED, buzzer, and relay)** were controlled through the **Blynk interface based on the sensor inputs** and user commands.
 
